@@ -1,0 +1,29 @@
+{
+  "name": "accuweather-simple",
+  "version": "0.0.1",
+  "description": "AccuWeather API simple wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/joyarzun/accuweather-simple.git"
+  },
+  "keywords": [
+    "accuweather",
+    "api",
+    "node",
+    "nodejs"
+  ],
+  "author": "Jonnatan Oyarzun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joyarzun/accuweather-simple/issues"
+  },
+  "homepage": "https://github.com/joyarzun/accuweather-simple#readme",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4"
+  }
+}
