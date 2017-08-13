@@ -1,6 +1,6 @@
 {
   "name": "accuweather-simple",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "AccuWeather API simple wrapper",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,12 @@
     "type": "git",
     "url": "git+ssh://git@github.com/joyarzun/accuweather-simple.git"
   },
-  "keywords": ["accuweather", "api", "node", "nodejs"],
+  "keywords": [
+    "accuweather",
+    "api",
+    "node",
+    "nodejs"
+  ],
   "author": "Jonnatan Oyarzun",
   "license": "MIT",
   "bugs": {
