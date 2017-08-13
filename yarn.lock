@@ -1540,6 +1540,10 @@ private@^0.1.6:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
 
+promise-memoize@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/promise-memoize/-/promise-memoize-1.2.0.tgz#e8b9345f2b42518d3016d76ffa4a7bb7dee7016f"
+
 prr@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/prr/-/prr-0.0.0.tgz#1a84b85908325501411853d0081ee3fa86e2926a"

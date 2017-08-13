@@ -1,6 +1,6 @@
 const rp = require("request-promise-native");
 
-const getLocationKey = config => locationName =>
+const getLocationKeyF = config => locationName =>
   rp({
     url: "http://dataservice.accuweather.com/locations/v1/cities/autocomplete",
     qs: {
@@ -11,7 +11,7 @@ const getLocationKey = config => locationName =>
     json: true
   }).then(data => data[0].Key);
 
-const getOneDayWeather = config => locationKey =>
+const getOneDayWeatherF = config => locationKey =>
   rp({
     url: `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}`,
     qs: {
@@ -21,21 +21,41 @@ const getOneDayWeather = config => locationKey =>
     json: true
   }).then(data => data.Headline.Text);
 
-const getWeather = config => locationName =>
-  getLocationKey(config)(locationName).then(locationKey =>
-    getOneDayWeather(config)(locationKey)
+const getWeatherF = config => locationName =>
+  getLocationKeyF(config)(locationName).then(locationKey =>
+    getOneDayWeatherF(config)(locationKey)
   );
 
 module.exports = userConfig => {
   const config = Object.assign(
     {},
-    { language: "en-us", apikey: "" },
+    { language: "en-us", apikey: "", cacheTime: 1000 * 60 * 60 },
     userConfig
   );
 
+  const getLocationKey =
+    config.cacheTime === 0
+      ? getLocationKeyF(config)
+      : require("promise-memoize")(getLocationKeyF(config), {
+          maxAge: config.cacheTime
+        });
+
+  const getOneDayWeather =
+    config.cacheTime === 0
+      ? getOneDayWeatherF(config)
+      : require("promise-memoize")(getOneDayWeatherF(config), {
+          maxAge: config.cacheTime
+        });
+  const getWeather =
+    config.cacheTime === 0
+      ? getWeatherF(config)
+      : require("promise-memoize")(getWeatherF(config), {
+          maxAge: config.cacheTime
+        });
+
   return {
-    getOneDayWeather: getOneDayWeather(config),
-    getLocationKey: getLocationKey(config),
-    getWeather: getWeather(config)
+    getLocationKey,
+    getOneDayWeather,
+    getWeather
   };
 };
