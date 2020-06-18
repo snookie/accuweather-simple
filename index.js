@@ -19,7 +19,7 @@ const getOneDayWeatherF = config => locationKey =>
       language: config.language
     },
     json: true
-  }).then(data => data.Headline.Text);
+  }).then(data => data);
 
 const getWeatherF = config => locationName =>
   getLocationKeyF(config)(locationName).then(locationKey =>
