@@ -16,7 +16,9 @@ const getOneDayWeatherF = config => locationKey =>
     url: `http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}`,
     qs: {
       apikey: config.apikey,
-      language: config.language
+      language: config.language,
+      metric: config.metric,
+      details: config.details
     },
     json: true
   }).then(data => data);

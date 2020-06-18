@@ -10,8 +10,10 @@ AccuWeather API simple wrapper
 ## Usage
 
     const config = {
-      apikey: "XXXXXXXX",
-      language: "en-us"
+      apikey: "XXXXXXXX", // Your API Key
+      language: "en-us", // Your Language Code
+      metric: true, // Returnvalues in Metric
+      details: true // More Details
     };
 
     const accuweatherSimple = require('accuweather-simple')(config);
