@@ -1,8 +1,8 @@
 const config = {
   apikey: "XXXXXXXX",
   language: "es-cl",
-  metric: true,
-  details: true
+  metric: "true",
+  details: "true"
 };
 const accuweatherSimple = require("./index")(config);
 
